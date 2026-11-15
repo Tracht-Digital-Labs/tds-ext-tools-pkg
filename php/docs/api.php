@@ -63,7 +63,7 @@ return [
         'summary' => 'Alle Tools mit ihren Übersteuerungen',
         'permission' => 'tools:manage',
         'responses' => [
-            ['status' => 200, 'description' => '`{tools: [...]}` — gemeldeter Stand plus Übersteuerungen.'],
+            ['status' => 200, 'description' => '`{tools: [...]}`, gemeldeter Stand plus Übersteuerungen.'],
             ['status' => 401, 'description' => 'Keine Sitzung.'],
             ['status' => 403, 'description' => 'Kein `tools:manage`.'],
         ],
@@ -149,7 +149,7 @@ return [
             . 'eine Tool-Seite niemals leeren kann.',
         'auth' => 'token',
         'responses' => [
-            ['status' => 200, 'description' => '`{guides: {"<tool-id>": {…}}}` — leer, wenn nichts gepflegt ist.'],
+            ['status' => 200, 'description' => '`{guides: {"<tool-id>": {…}}}`, leer, wenn nichts gepflegt ist.'],
         ],
     ],
     [
@@ -170,7 +170,7 @@ return [
         'tag' => 'Verwaltung',
         'summary' => 'Text und Ratgeber eines Tools in einer Sprache speichern',
         'description' => 'Ein weggelassenes Feld wird als NULL gespeichert, heißt also '
-            . '„wieder den mitgelieferten Text verwenden" — sonst ließe sich eine '
+            . '„wieder den mitgelieferten Text verwenden", sonst ließe sich eine '
             . 'Übersteuerung ohne Datenbankzugriff nicht mehr zurücknehmen. Nach dem '
             . 'Speichern wird der Seiten-Cache der betroffenen Tool-Seite neu gebaut.',
         'permission' => 'tools:manage',
@@ -183,8 +183,8 @@ return [
             ['in' => 'body', 'name' => 'seo_description', 'type' => 'string', 'description' => 'Meta-Description (Budget: 80–160 Zeichen).'],
             ['in' => 'body', 'name' => 'intro', 'type' => 'array', 'description' => 'Absätze der Einleitung.'],
             ['in' => 'body', 'name' => 'use_cases', 'type' => 'array', 'description' => 'Anwendungsfälle.'],
-            ['in' => 'body', 'name' => 'steps', 'type' => 'array', 'description' => 'Schritte — speisen auch das HowTo-JSON-LD.'],
-            ['in' => 'body', 'name' => 'faq', 'type' => 'array', 'description' => 'Fragen und Antworten — speisen auch das FAQPage-JSON-LD.'],
+            ['in' => 'body', 'name' => 'steps', 'type' => 'array', 'description' => 'Schritte, speisen auch das HowTo-JSON-LD.'],
+            ['in' => 'body', 'name' => 'faq', 'type' => 'array', 'description' => 'Fragen und Antworten, speisen auch das FAQPage-JSON-LD.'],
             ['in' => 'body', 'name' => 'related', 'type' => 'array', 'description' => 'Slugs verwandter Tools.'],
             ['in' => 'body', 'name' => 'privacy', 'type' => 'string', 'description' => 'Datenschutzhinweis unter dem Werkzeug.'],
         ],
@@ -260,7 +260,7 @@ return [
         ],
         'responses' => [
             ['status' => 200, 'description' => '`{entitled: bool, authenticated: true}`'],
-            ['status' => 401, 'description' => '`{entitled: false, authenticated: false}` — die Seite zeigt daraufhin den Login-Hinweis statt eines Fehlers.'],
+            ['status' => 401, 'description' => '`{entitled: false, authenticated: false}`, die Seite zeigt daraufhin den Login-Hinweis statt eines Fehlers.'],
             ['status' => 422, 'description' => '`tool` fehlt.'],
         ],
     ],
@@ -277,7 +277,7 @@ return [
             ['in' => 'body', 'name' => 'tool', 'type' => 'string', 'required' => true, 'description' => 'Tool-Id, z. B. `pdf-komprimieren` oder `design-system-studio`.'],
         ],
         'responses' => [
-            ['status' => 201, 'description' => '`{url}` — die Checkout-Seite von Stripe.'],
+            ['status' => 201, 'description' => '`{url}`, die Checkout-Seite von Stripe.'],
             ['status' => 400, 'description' => 'Kein Werkzeug angegeben, oder keine Stufe enthält es (`code: no_tier`).'],
             ['status' => 401, 'description' => 'Keine Sitzung.'],
             ['status' => 403, 'description' => 'Werkzeug deaktiviert.'],
@@ -325,7 +325,7 @@ return [
             ['in' => 'body', 'name' => 'tier', 'type' => 'string', 'required' => true, 'description' => 'Kurzname der Stufe.'],
         ],
         'responses' => [
-            ['status' => 201, 'description' => '`{url}` — die Checkout-Seite von Stripe.'],
+            ['status' => 201, 'description' => '`{url}`, die Checkout-Seite von Stripe.'],
             ['status' => 401, 'description' => 'Keine Sitzung (`code: login_required`).'],
             ['status' => 404, 'description' => 'Unbekannte oder deaktivierte Stufe.'],
             ['status' => 409, 'description' => 'Es läuft schon ein Abo (`code: has_subscription`).'],
@@ -342,7 +342,7 @@ return [
         'auth' => 'session',
         'params' => [],
         'responses' => [
-            ['status' => 201, 'description' => '`{url}` — das Kundenportal.'],
+            ['status' => 201, 'description' => '`{url}`, das Kundenportal.'],
             ['status' => 401, 'description' => 'Keine Sitzung.'],
             ['status' => 404, 'description' => 'Zu diesem Konto gibt es kein Abo (`code: no_subscription`).'],
             ['status' => 502, 'description' => 'Stripe hat abgelehnt.'],
@@ -435,7 +435,7 @@ return [
             ['in' => 'header', 'name' => 'Stripe-Signature', 'type' => 'string', 'required' => true, 'description' => 'Von Stripe erzeugte Signatur über den rohen Body.'],
         ],
         'responses' => [
-            ['status' => 200, 'description' => '`{received: true}` — auch für nicht behandelte Ereignistypen.'],
+            ['status' => 200, 'description' => '`{received: true}`, auch für nicht behandelte Ereignistypen.'],
             ['status' => 400, 'description' => 'Signatur ungültig.'],
             ['status' => 503, 'description' => 'Kein Webhook-Secret konfiguriert.'],
         ],
@@ -540,7 +540,7 @@ return [
         'tag' => 'Designsystem-Studio',
         'summary' => 'Genau eine HTTPS-Seite samt Stylesheets für die Stilanalyse laden',
         'description' => 'Lädt ausschließlich die angegebene Seite und die von ihr verlinkten HTTPS-'
-            . 'Stylesheets (eine @import-Ebene) — kein Crawling, keine weiteren HTML-Seiten, kein '
+            . 'Stylesheets (eine @import-Ebene), kein Crawling, keine weiteren HTML-Seiten, kein '
             . 'JavaScript. Jede Adresse wird geprüft: nur Port 443, keine internen oder reservierten '
             . 'Netze; jede DNS-Antwort muss öffentlich sein, die Verbindung wird auf die geprüfte '
             . 'Adresse festgelegt (DNS-Rebinding). Leitet die Seite weiter, wird das Ziel gemeldet, '
@@ -551,7 +551,7 @@ return [
             ['in' => 'body', 'name' => 'url', 'type' => 'string', 'required' => true, 'description' => 'HTTPS-Adresse der Seite.'],
         ],
         'responses' => [
-            ['status' => 200, 'description' => '`{url, finalUrl, title, html, stylesheets: [{url, css}], skipped: [{url, reason}]}` — `html` ohne Skripte und Eventhandler.'],
+            ['status' => 200, 'description' => '`{url, finalUrl, title, html, stylesheets: [{url, css}], skipped: [{url, reason}]}`: `html` ohne Skripte und Eventhandler.'],
             ['status' => 403, 'description' => 'Studio oder Analyse abgeschaltet (`code: disabled`).'],
             ['status' => 413, 'description' => 'Seite zu groß (`code: too_large`).'],
             ['status' => 422, 'description' => '`code: invalid_url`, `blocked_host`, `redirect` (mit `location`) oder `not_html`.'],

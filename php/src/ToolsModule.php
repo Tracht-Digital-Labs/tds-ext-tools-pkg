@@ -104,7 +104,7 @@ final class ToolsModule extends AbstractModule implements ApiDocSource, SiteKeyP
             // hidden from the UI; a paired connection always takes priority.
             new SettingDef('cache_url', 'Seiten-Cache: Basis-URL der Tools-Site', false, 'tools', 'https://tools.tracht-digital.de'),
             new SettingDef('cache_token', 'Seiten-Cache: Token', true, 'tools'),
-            new SettingDef('stripe_secret_key', 'Stripe Secret Key (optional — leer = zentrales Konto)', true, 'tools'),
+            new SettingDef('stripe_secret_key', 'Stripe Secret Key (optional, leer = zentrales Konto)', true, 'tools'),
             new SettingDef('stripe_webhook_secret', 'Stripe Webhook Secret', true, 'tools'),
             new SettingDef('currency', 'Währung (Premium)', false, 'tools', 'EUR'),
             new SettingDef('checkout_success_url', 'Checkout Success-URL', false, 'tools', 'https://tools.tracht-digital.de/'),
@@ -289,7 +289,7 @@ final class ToolsModule extends AbstractModule implements ApiDocSource, SiteKeyP
                 // ("Registry sync not configured") sent an operator to the tools
                 // settings even when the intended fix was a site key.
                 return self::json($res, [
-                    'error' => 'Registry sync not configured — Site-Key oder Registry-Token hinterlegen',
+                    'error' => 'Registry sync not configured: Site-Key oder Registry-Token hinterlegen',
                 ], 503);
             }
             if (!hash_equals($configured, $provided)) {
@@ -680,7 +680,7 @@ final class ToolsModule extends AbstractModule implements ApiDocSource, SiteKeyP
             $repo = $c->get(StudioProjectRepository::class);
             $limit = self::studioProjectLimit($c);
             if ($repo->countFor($uid) >= $limit) {
-                return self::json($res, ['error' => "Höchstens {$limit} Projekte — bitte ein altes löschen.", 'code' => 'limit'], 409);
+                return self::json($res, ['error' => "Höchstens {$limit} Projekte, bitte ein altes löschen.", 'code' => 'limit'], 409);
             }
             $id = $repo->create($uid, $input['name'], $input['schema'], $input['json']);
             return self::json($res, ['project' => $repo->summary($uid, $id)], 201);

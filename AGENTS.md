@@ -32,6 +32,7 @@ composer install && composer test   # phpunit; DB tests need TDS_TEST_DB_DSN
 - Prices (premium stages) are edited in euros and stored in cents; nothing is saved until "Speichern".
 - Call the API with `apiFetch`. Per-row outcomes are toasts. Never mount a `ToastHost`.
 - Stay in the `0.5.x` line (admin product pins `^0.5.x`).
+- Follows the TDS quality standard (`../tds-ops/standards/quality.md`): no AI slop, clean code.
 
 ## Topic files
 

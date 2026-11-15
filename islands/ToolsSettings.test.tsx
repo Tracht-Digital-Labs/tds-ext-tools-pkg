@@ -152,7 +152,7 @@ describe("loading", () => {
     // fetch rejects offline; unhandled, the section stayed on its spinner.
     settingsGet = UNREACHABLE;
     render(<ToolsSettings />);
-    expect(await screen.findByText("Einstellungen konnten nicht geladen werden — die API ist nicht erreichbar.")).toBeTruthy();
+    expect(await screen.findByText(/^Einstellungen konnten nicht geladen werden.*nicht erreichbar/)).toBeTruthy();
   });
 });
 

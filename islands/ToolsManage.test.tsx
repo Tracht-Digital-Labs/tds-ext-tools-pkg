@@ -241,7 +241,7 @@ describe("loading", () => {
     // fetch rejects offline; unhandled, the table stayed on its spinner.
     unreachable(/^\/admin\/tools$/, "GET");
     render(<ToolsManage />);
-    expect(await screen.findByText("Tools konnten nicht geladen werden — die API ist nicht erreichbar.")).toBeTruthy();
+    expect(await screen.findByText("Tools konnten nicht geladen werden, die API ist nicht erreichbar.")).toBeTruthy();
     expect(screen.queryByLabelText("Wird geladen")).toBeNull();
   });
 });

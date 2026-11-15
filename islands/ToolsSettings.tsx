@@ -134,13 +134,13 @@ export default function ToolsSettings() {
       const cacheBody = cacheRes === null ? {} : await cacheRes.json().catch(() => ({}));
       if (cacheRes === null) {
         // The settings are stored; only the follow-up refresh was lost.
-        toast.warning("Gespeichert — Cache-Aktualisierung fehlgeschlagen, die API ist nicht erreichbar.");
+        toast.warning("Gespeichert: Cache-Aktualisierung fehlgeschlagen, die API ist nicht erreichbar.");
       } else if (cacheRes.status === 202 && cacheBody.cached === true) {
-        toast.success("Gespeichert — Seiten-Cache aktualisiert.");
+        toast.success("Gespeichert: Seiten-Cache aktualisiert.");
       } else if (cacheRes.status === 503) {
-        toast.warning("Gespeichert — die Tools-Site ist noch nicht für Cache-Aktualisierungen verbunden.");
+        toast.warning("Gespeichert, die Tools-Site ist noch nicht für Cache-Aktualisierungen verbunden.");
       } else {
-        toast.warning(`Gespeichert — Cache-Aktualisierung fehlgeschlagen (HTTP ${cacheRes.status}).`);
+        toast.warning(`Gespeichert: Cache-Aktualisierung fehlgeschlagen (HTTP ${cacheRes.status}).`);
       }
     }
     setSaving(false);
@@ -216,7 +216,7 @@ export default function ToolsSettings() {
         <p className="text-sm opacity-70">
           Ohne Stripe-Konto (zentral oder hier) antwortet der Checkout mit 503
           und kein Premium-Tool lässt sich kaufen. Der Webhook (…/tools/stripe-webhook) schaltet den
-          Kauf frei — ohne sein Secret bleibt jede Zahlung ohne Freischaltung.
+          Kauf frei, ohne sein Secret bleibt jede Zahlung ohne Freischaltung.
         </p>
         <p className="text-sm opacity-70">Nur nötig, wenn dieses Modul ein eigenes Stripe-Konto nutzen soll. Ohne eigenen Schlüssel gilt das zentrale Konto unter Einstellungen → Zahlungen (Stripe); dort stehen auch alle Webhook-Adressen.</p>
         <SecretField label="Secret Key, optional" setting={settings.get("stripe_secret_key")} value={stripeKey} onChange={setStripeKey} placeholder="sk_… (leer = behalten)" />

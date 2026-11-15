@@ -206,7 +206,7 @@ describe("ToolGuides", () => {
     it("says so instead of loading forever", async () => {
       vi.stubGlobal("fetch", vi.fn(async () => { throw new TypeError("Failed to fetch"); }));
       render(<ToolGuides />);
-      expect(await screen.findByText("Tools konnten nicht geladen werden — die API ist nicht erreichbar.")).toBeTruthy();
+      expect(await screen.findByText("Tools konnten nicht geladen werden, die API ist nicht erreichbar.")).toBeTruthy();
     });
 
     it("keeps the typed text when the save fails", async () => {

@@ -78,7 +78,7 @@ export default function ToolsManage() {
     // table stayed on its spinner for good.
     const res = await apiFetch("/admin/tools").catch(() => null);
     if (res === null) {
-      setError("Tools konnten nicht geladen werden — die API ist nicht erreichbar.");
+      setError("Tools konnten nicht geladen werden, die API ist nicht erreichbar.");
       setTools([]);
       return;
     }
@@ -112,7 +112,7 @@ export default function ToolsManage() {
       }).catch(() => null);
     setBusy(null);
     if (res === null) {
-      toast.danger(`„${tool.name}“ konnte nicht gespeichert werden — die API ist nicht erreichbar.`);
+      toast.danger(`„${tool.name}“ konnte nicht gespeichert werden, die API ist nicht erreichbar.`);
       return;
     }
     // One `status` string for a whole TABLE of rows meant saving row 3 wiped
@@ -122,11 +122,11 @@ export default function ToolsManage() {
     if (res.ok) {
       const body = await res.json().catch(() => ({}));
       if (body.cache_status === "refreshed" && body.cached === true) {
-        toast.success(`„${tool.name}“ gespeichert — Seiten-Cache aktualisiert.`);
+        toast.success(`„${tool.name}“ gespeichert: Seiten-Cache aktualisiert.`);
       } else if (body.cache_status === "not_configured") {
-        toast.warning(`„${tool.name}“ gespeichert — Tools-Site noch nicht verbunden.`);
+        toast.warning(`„${tool.name}“ gespeichert: Tools-Site noch nicht verbunden.`);
       } else {
-        toast.warning(`„${tool.name}“ gespeichert — Cache-Aktualisierung fehlgeschlagen.`);
+        toast.warning(`„${tool.name}“ gespeichert: Cache-Aktualisierung fehlgeschlagen.`);
       }
     } else toast.danger(`„${tool.name}“ konnte nicht gespeichert werden (HTTP ${res.status}).`);
   };

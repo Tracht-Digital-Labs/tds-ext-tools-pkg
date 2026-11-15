@@ -229,7 +229,7 @@ final class ClassReferencesTest extends TestCase
         self::assertGreaterThan(
             20,
             count($refs),
-            'ToolsModule references far more classes than this — the scanner is blind',
+            'ToolsModule references far more classes than this, the scanner is blind',
         );
         self::assertContains('ToolGuideRepository', $refs);
         self::assertContains('SiteCache', $refs);

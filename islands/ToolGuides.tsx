@@ -95,7 +95,7 @@ export default function ToolGuides() {
       apiFetch("/admin/tools/guides"),
     ]).catch(() => null);
     if (both === null) {
-      setError("Tools konnten nicht geladen werden — die API ist nicht erreichbar.");
+      setError("Tools konnten nicht geladen werden, die API ist nicht erreichbar.");
       setTools([]);
       return;
     }
@@ -172,17 +172,17 @@ export default function ToolGuides() {
     setBusy(false);
     if (res === null) {
       // The form keeps everything typed into it.
-      toast.danger("Speichern fehlgeschlagen — die API ist nicht erreichbar.");
+      toast.danger("Speichern fehlgeschlagen, die API ist nicht erreichbar.");
       return;
     }
     if (res.ok) {
       const body = await res.json().catch(() => ({}));
       if (body.cache_status === "refreshed" && body.cached === true) {
-        toast.success("Gespeichert — Seiten-Cache aktualisiert.");
+        toast.success("Gespeichert: Seiten-Cache aktualisiert.");
       } else if (body.cache_status === "not_configured") {
-        toast.warning("Gespeichert — Tools-Site noch nicht verbunden.");
+        toast.warning("Gespeichert: Tools-Site noch nicht verbunden.");
       } else {
-        toast.warning("Gespeichert — Cache-Aktualisierung fehlgeschlagen.");
+        toast.warning("Gespeichert: Cache-Aktualisierung fehlgeschlagen.");
       }
       void load();
     } else {
@@ -201,15 +201,15 @@ export default function ToolGuides() {
     }).catch(() => null);
     setBusy(false);
     if (res === null) {
-      toast.danger("Zurücksetzen fehlgeschlagen — die API ist nicht erreichbar.");
+      toast.danger("Zurücksetzen fehlgeschlagen, die API ist nicht erreichbar.");
       return;
     }
     if (res.ok) {
       const body = await res.json().catch(() => ({}));
       if (body.cache_status === "refreshed" && body.cached === true) {
-        toast.success("Übersteuerung entfernt — Seiten-Cache aktualisiert.");
+        toast.success("Übersteuerung entfernt: Seiten-Cache aktualisiert.");
       } else {
-        toast.warning("Übersteuerung entfernt — Cache-Aktualisierung steht noch aus.");
+        toast.warning("Übersteuerung entfernt: Cache-Aktualisierung steht noch aus.");
       }
       setDraft(EMPTY);
       void load();
@@ -227,7 +227,7 @@ export default function ToolGuides() {
     <div className="tool-guides tds-stack">
       <p className="marginalia">
         Hier steht nur, was den mitgelieferten Text <strong>ersetzen</strong> soll. Ein
-        leeres Feld heißt „den Text aus dem Repository verwenden" — deshalb ist dieses
+        leeres Feld heißt „den Text aus dem Repository verwenden", deshalb ist dieses
         Formular auch bei einer Tool-Seite leer, die voller Text ist. Ein Feld zu leeren
         nimmt die Übersteuerung wieder zurück.
       </p>
