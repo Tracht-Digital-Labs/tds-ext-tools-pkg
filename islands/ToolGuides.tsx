@@ -236,7 +236,7 @@ export default function ToolGuides() {
         <label className="field">
           <span>Tool</span>
           <select className="field-boxed" value={toolId} onChange={(e) => setToolId(e.target.value)}>
-            <option value="">— auswählen —</option>
+            <option value="">Auswählen</option>
             {tools.map((t) => (
               <option key={t.tool_id} value={t.tool_id}>{t.name}</option>
             ))}

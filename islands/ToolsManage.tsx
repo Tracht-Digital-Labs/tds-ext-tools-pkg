@@ -195,7 +195,7 @@ export default function ToolsManage() {
                         value={t.blog_slug ?? ""}
                         onChange={(e) => patch(t.tool_id, { blog_slug: e.target.value || null })}
                       >
-                        <option value="">— kein Artikel —</option>
+                        <option value="">Kein Artikel</option>
                         {/* A stored slug the list does not hold (unpublished,
                             renamed) stays visible instead of silently vanishing. */}
                         {t.blog_slug && !articles.some((a) => a.slug === t.blog_slug) ? (
