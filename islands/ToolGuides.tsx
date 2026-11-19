@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Alert, ConfirmDialog, Spinner, toast } from "@tracht-digital-solutions/tds-shared/components";
-import { apiFetch } from "@tracht-digital-solutions/tds-shared/api";
-import { Collapse, Presence } from "@tracht-digital-solutions/tds-shared/motion/react";
+import { Alert, ConfirmDialog, Spinner, toast } from "@tracht-digital-labs/tds-shared/components";
+import { apiFetch } from "@tracht-digital-labs/tds-shared/api";
+import { Collapse, Presence } from "@tracht-digital-labs/tds-shared/motion/react";
 
 type Lang = "de" | "en";
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Alert, Spinner, toast } from "@tracht-digital-solutions/tds-shared/components";
-import { apiFetch, sendJson } from "@tracht-digital-solutions/tds-shared/api";
+import { Alert, Spinner, toast } from "@tracht-digital-labs/tds-shared/components";
+import { apiFetch, sendJson } from "@tracht-digital-labs/tds-shared/api";
 
 interface Tool {
   tool_id: string;

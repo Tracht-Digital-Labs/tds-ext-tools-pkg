@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ToolsManage from "./ToolsManage";
-import { TOAST_EVENT } from "@tracht-digital-solutions/tds-shared/toast";
+import { TOAST_EVENT } from "@tracht-digital-labs/tds-shared/toast";
 
 /**
  * The tool-catalog admin table. Every row decides what the PUBLIC tools site

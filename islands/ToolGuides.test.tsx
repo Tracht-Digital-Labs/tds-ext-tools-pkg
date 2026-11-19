@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import ToolGuides from "./ToolGuides.tsx";
-import { TOAST_EVENT } from "@tracht-digital-solutions/tds-shared/toast";
+import { TOAST_EVENT } from "@tracht-digital-labs/tds-shared/toast";
 
 const TOOLS = [
   { tool_id: "qr", name: "QR-Code-Generator", category: "web" },

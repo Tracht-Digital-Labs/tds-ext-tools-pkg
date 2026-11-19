@@ -1,4 +1,4 @@
-import { defineExtension } from "@tracht-digital-solutions/tds-frontend-contract";
+import { defineExtension } from "@tracht-digital-labs/tds-frontend-contract";
 
 /**
  * Public tools platform admin manifest. Manages the tool catalog config (which
@@ -30,7 +30,7 @@ export default defineExtension({
     {
       id: "tools-status",
       title: "Tools",
-      island: "@tracht-digital-solutions/tds-ext-tools/widgets/Widget.astro",
+      island: "@tracht-digital-labs/tds-ext-tools/widgets/Widget.astro",
       size: "sm",
       permission: "tools:manage",
       dataEndpoint: "/tools/summary",
@@ -41,14 +41,14 @@ export default defineExtension({
     {
       id: "tools",
       label: "Tools / AdSense",
-      island: "@tracht-digital-solutions/tds-ext-tools/islands/Settings.astro",
+      island: "@tracht-digital-labs/tds-ext-tools/islands/Settings.astro",
       order: 50,
     },
   ],
   routes: [
     {
       pattern: "/tools-verwaltung",
-      entrypoint: "@tracht-digital-solutions/tds-ext-tools/pages/Index.astro",
+      entrypoint: "@tracht-digital-labs/tds-ext-tools/pages/Index.astro",
       permission: "tools:manage",
     },
   ],

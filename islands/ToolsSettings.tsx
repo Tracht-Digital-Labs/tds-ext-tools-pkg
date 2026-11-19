@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Alert, ConfirmDialog, Spinner, toast } from "@tracht-digital-solutions/tds-shared/components";
-import { sendJson } from "@tracht-digital-solutions/tds-shared/api";
-import { SecretField, usePairing, useRuntimeSettings } from "@tracht-digital-solutions/tds-shared/admin";
-import { centsToEuroInput, parseEuros } from "@tracht-digital-solutions/tds-shared/format";
+import { Alert, ConfirmDialog, Spinner, toast } from "@tracht-digital-labs/tds-shared/components";
+import { sendJson } from "@tracht-digital-labs/tds-shared/api";
+import { SecretField, usePairing, useRuntimeSettings } from "@tracht-digital-labs/tds-shared/admin";
+import { centsToEuroInput, parseEuros } from "@tracht-digital-labs/tds-shared/format";
 
 interface Connection {
   origin?: string;

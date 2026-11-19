@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Alert, ConfirmDialog, Spinner, toast } from "@tracht-digital-solutions/tds-shared/components";
-import { apiFetch, describeFailure, describeFailureFrom, sendJson } from "@tracht-digital-solutions/tds-shared/api";
-import { centsToEuroInput, formatCents, parseEuros } from "@tracht-digital-solutions/tds-shared/format";
+import { Alert, ConfirmDialog, Spinner, toast } from "@tracht-digital-labs/tds-shared/components";
+import { apiFetch, describeFailure, describeFailureFrom, sendJson } from "@tracht-digital-labs/tds-shared/api";
+import { centsToEuroInput, formatCents, parseEuros } from "@tracht-digital-labs/tds-shared/format";
 
 export interface Tier {
   id: number;

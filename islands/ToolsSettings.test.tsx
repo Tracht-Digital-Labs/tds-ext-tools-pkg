@@ -2,10 +2,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { primeRuntimeConfig } from "@tracht-digital-solutions/tds-shared/api";
-import { TOAST_EVENT } from "@tracht-digital-solutions/tds-shared/toast";
+import { primeRuntimeConfig } from "@tracht-digital-labs/tds-shared/api";
+import { TOAST_EVENT } from "@tracht-digital-labs/tds-shared/toast";
 import { readFileSync } from "node:fs";
-import { parseEuros } from "@tracht-digital-solutions/tds-shared/format";
+import { parseEuros } from "@tracht-digital-labs/tds-shared/format";
 import ToolsSettings, { STUDIO_FORMATS } from "./ToolsSettings";
 
 type Reply = { status: number; body: unknown };
